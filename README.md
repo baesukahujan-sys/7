@@ -12,58 +12,53 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ffd6e7,#ffc0cb,#ffe4ef);
-overflow:hidden;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+background:linear-gradient(135deg,#ffd6e7,#ffc2da,#ffeaf4);
+overflow:hidden;
 }
 
 .card{
-background:rgba(255,255,255,.4);
-backdrop-filter:blur(10px);
-padding:30px;
+width:90%;
+max-width:420px;
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(12px);
+padding:35px;
 border-radius:30px;
 text-align:center;
-width:90%;
-max-width:400px;
-box-shadow:0 10px 30px rgba(255,105,180,.3);
+box-shadow:0 15px 35px rgba(255,105,180,.3);
 animation:fade 1.5s;
 }
 
-img{
-width:180px;
-height:180px;
-border-radius:50%;
-object-fit:cover;
-border:6px solid white;
-box-shadow:0 5px 20px rgba(255,105,180,.4);
-margin-bottom:20px;
+h1{
+font-family:'Pacifico',cursive;
+font-size:45px;
+color:#ff4d88;
 }
 
-h1{
-font-family:Pacifico;
-color:#ff4f93;
-font-size:42px;
+h2{
+margin:10px 0;
+color:#ff6b9a;
 }
 
 p{
-margin-top:15px;
+margin-top:20px;
 line-height:1.8;
 color:#555;
 }
 
 button{
-margin-top:20px;
-padding:12px 30px;
-border:none;
-background:#ff4f93;
+margin-top:25px;
+padding:14px 30px;
+background:#ff4d88;
 color:white;
+border:none;
 border-radius:50px;
 font-size:16px;
 cursor:pointer;
@@ -74,9 +69,38 @@ button:hover{
 transform:scale(1.08);
 }
 
+#popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.45);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:25px;
+width:85%;
+max-width:350px;
+text-align:center;
+animation:fade .5s;
+}
+
+.box h2{
+color:#ff4d88;
+}
+
+.box p{
+margin-top:15px;
+}
+
 .heart{
 position:absolute;
-font-size:25px;
 animation:fall linear forwards;
 }
 
@@ -85,7 +109,7 @@ animation:fall linear forwards;
 transform:translateY(-100px);
 opacity:0;
 }
-10%{
+20%{
 opacity:1;
 }
 100%{
@@ -97,7 +121,7 @@ opacity:0;
 @keyframes fade{
 from{
 opacity:0;
-transform:translateY(40px);
+transform:translateY(30px);
 }
 to{
 opacity:1;
@@ -111,59 +135,98 @@ transform:translateY(0);
 
 <div class="card">
 
-<img src="foto.jpg" alt="Princess">
+<h1>🎂 Happy Birthday</h1>
 
-<h1>Happy Birthday 💖</h1>
-
-<h2>Princess nya akuu 🥰</h2>
+<h2>Princess nyaa akuu 🩷</h2>
 
 <p>
-Selamat ulang tahun yaa sayangku 🤍🌸<br><br>
 
-Semoga selalu sehat, bahagia, panjang umur,
-dan semua impianmu tercapai.
+Selamat ulang tahun yaaa kesayangan nyaa akuuu! 😍🌸💕🥳💋💖
 
-Terima kasih sudah hadir di hidupku dan
-menjadi alasan aku tersenyum setiap hari.
+Semoga di usia yang baruu inii kamuu selalu sehat, bahagia, panjang umur, dan semua doa serta impian kamuu satu per satu menjadi kenyataan yaaa🫶.
 
-Aku sayang kamu lebih dari yang bisa
-aku ungkapkan dengan kata-kata. 💕
+Tiamaacii yaaa sayanggg udaaa hadir dan buatt hidup akuuu lebih berwarna🥰🫶. harapan akuu kedepannya semoga akuu bisaa terus dampingi kamuu disetiap ulang tahun kamuu🥺🫶
 
-Love You Forever ❤️
+Tetap jadi perempuan yang baik, manis, lucu, dan selalu tersenyum yang akuu kenal yaaa sayanggg. 🥰🤍
+
+Akuu bakalan selalu doa in yang terbaik buatt kamuu.😍🫶
+
+Alapyuuuu kesayangan nyaa akuu.😍💖
+
 </p>
 
-<button onclick="surprise()">
-Klik Hadiahnya 🎁
+<button onclick="bukaHadiah()">
+🎁 Buka Hadiah
 </button>
+
+</div>
+
+<div id="popup">
+
+<div class="box">
+
+<h2>💌 Pesan Spesial</h2>
+
+<p>
+
+Kalau suatu saatt nantii kamuu bertanya apaa hadiah terbaik yang pernaa akuu miliki...
+
+Jawabannya tetap samaa.
+
+<b>Kamuu sayanggg.</b> 🥺❤️
+
+Terima kasih sudaa menjadi bagian terindah dalam hidup nyaa akuuu.🫶
+
+Happy Birthday, Princess-ku.
+
+I Love You Forever Sayangg💋🥰😍💖💕
+
+</p>
+
+<button onclick="tutup()">
+
+💕 Peluk Virtual
+
+</button>
+
+</div>
 
 </div>
 
 <script>
 
-function surprise(){
+function bukaHadiah(){
 
-alert("💖 Selamat Ulang Tahun Princess-ku! 💖\n\nSemoga kita selalu bersama yaa. Aku sayang kamu selamanya ❤️");
+document.getElementById("popup").style.display="flex";
+
+}
+
+function tutup(){
+
+document.getElementById("popup").style.display="none";
 
 }
 
 setInterval(()=>{
 
-let h=document.createElement("div");
+let heart=document.createElement("div");
 
-h.className="heart";
+heart.className="heart";
 
-h.innerHTML=["💖","💕","🌸","💗"][Math.floor(Math.random()*4)];
+heart.innerHTML=["💖","💕","🌸","🩷","💗"][Math.floor(Math.random()*5)];
 
-h.style.left=Math.random()*100+"vw";
+heart.style.left=Math.random()*100+"vw";
 
-h.style.fontSize=(20+Math.random()*20)+"px";
+heart.style.fontSize=(18+Math.random()*20)+"px";
 
-h.style.animationDuration=(5+Math.random()*4)+"s";
+heart.style.animationDuration=(5+Math.random()*4)+"s";
 
-document.body.appendChild(h);
+document.body.appendChild(heart);
 
 setTimeout(()=>{
-h.remove();
+
+heart.remove();
+
 },9000);
 
 },250);
